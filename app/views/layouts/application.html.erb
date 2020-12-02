@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= yield(:title) %> | TastyBite</title>
+    <%= csrf_meta_tags %>
+     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    
+    
+    
+    <%= render '/layouts/header' %>
+    
+    
+    <div class="container">
+    <%= yield %>
+    </div>
+
+<footer class="foot">
+<h1>I’m the Footer</h1>
+</footer>
+
+    
+    
+    
+    
+    
+    
+    
+  </body>
+</html>
