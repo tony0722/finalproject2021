@@ -1,13 +1,14 @@
- <header class="headSec">
+ <header class="headsec">
+  
+  
+  
       <h1>Tasty</h1>
       
       <ul>
         <li><%= link_to "Home",  "/" %></li>
         
-        <li><%= link_to "Products", "/products" %></li>
-         
-         
-         
+        <li><%= link_to "Menu", "/products" %></li>
+      
         <li><%= link_to "About", "/about" %></li>
         <li><%= link_to "Help", "/help" %></li>
          <li><%= link_to "Admin", "/admin" %></li>
@@ -26,3 +27,15 @@
       
       
     </header>
+    <script>
+// When the user scrolls down 50px from the top of the document, resize the header's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    document.getElementById("header").style.fontSize = "30px";
+  } else {
+    document.getElementById("header").style.fontSize = "90px";
+  }
+}
+</script>
