@@ -1,22 +1,22 @@
 Rails.application.routes.draw do
+  
+   default_url_options :host => "example.com"
+  
+  
+  resources :categories
   resources :orders do
-      
-      resources:orderitems
-      
+   resources:orderitems
     end  
-  
-  
-  
   
   
   devise_for :users do
       
       resources:orders
      end 
-  
+
   get '/paid/:id' => 'static_pages#paid'
   
-  get '/admin' => 'static_pages#adminsection'
+  get '/manager' => 'static_pages#adminsection'
   
   get '/checkout' => 'cart#createOrder'
   
@@ -25,30 +25,46 @@ Rails.application.routes.draw do
   get 'cart/index'
 
   resources :items
- root 'static_pages#home'
+  #################################################
+                                     root 'static_pages#home'
 
-   get '/help' => 'static_pages#help'
+   get '/helppage' => 'static_pages#help'
 
-  get '/about' => 'static_pages#about'
+  get '/aboutpage' => 'static_pages#about'
 
    get '/contact' => 'static_pages#contact'
    
-   get '/products' => 'items#index'
+   get '/menus' => 'items#index'
 
 
-  get '/pretend_login' => 'user#pretendlogin'
+   get'/search' => 'items#search'
+   post '/search' => 'items#search'
+   
+   get '/feedback' => 'static_pages#feedback'
+ # get '/feedback' => 'static_pages#feedback'
+get '/upgrade/:id' => 'static_pages#upgradeadmin'
+get '/downgrade/:id' => 'static_pages#downgradeadmin'
+
+
+get '/profile' => 'static_pages#profileuser'
+
+get '/alluser' => 'static_pages#alluser'
+
+
   
-  get '/pretend_logout' => 'user#pretendlogout'
+  get '/log_in' => 'user#log_in'
   
+  get '/log_out' => 'user#log_out'
+ ################################ 
   get '/cart' => 'cart#index'
   
-  get '/cart/:id' => 'cart#add'
+  get '/cart/:id' => 'cart#addtobasket'
   
-  get '/clearcart' => 'cart#clearcart'
+  get '/clearcart' => 'cart#clearthecart'
   
-  get '/remove/:id' => 'cart#remove'
+  get '/remove/:id' => 'cart#deleteall'
   
-  get '/decrease/:id' => 'cart#decrease'
+  get '/decrease/:id' => 'cart#decreaseitems'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

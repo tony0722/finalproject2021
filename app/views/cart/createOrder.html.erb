@@ -4,10 +4,13 @@
  <% @orders.limit(1).order(id: :desc).each do |order| %>
             You Just Placed Order No - <%= order.id %>
             
-            <a href='/paid/<%= order.id %>' class="button">Pay Now</a>
+            <a href='/paid/<%= order.id %>' class="button">confirm</a>
+            <a href='/cart' class="button">back</a>
+            
+            
             <% end %>
 
-
+ 
 
 
 <div id="itemsContainer">
@@ -50,16 +53,42 @@
             <td>Order Total: <%= number_to_currency(total, :unit =>"€") %></td>
             
         </tr>
-        <% shipping = 10 %>
-        <% @overalltotal = shipping + total %>
+        
+        <% if total>25  %>
+        
+        <% deliverycharge = 0%>
+         <% session[:deliverycharge] = deliverycharge%>
+         
+         
+        <% elsif  total<=0  %>
+        
+         <% deliverycharge = 0  %>
+        
+        <% session[:deliverycharge] = deliverycharge%>
+         
+         
+        <% else total<25  %>
+        
+        <% deliverycharge = 2.5%>
+        <% session[:deliverycharge] = deliverycharge%>
+        <% end %>
+        
+        
+        <% overalltotal = deliverycharge + total %>
+        
+     
+        
         <tr>
             <td>
-                Shipping is €10
+                
+                
+                Delivery charger is € <%= session[:deliverycharge] %>
                 
             </td>
-            <td>So You Owe Me: €<%= @overalltotal %></td>
-            
-            
+            <td>total : €<%= overalltotal %></td>
+             
+         
+             <% session[:totalpayment]=overalltotal %>
         </tr>
         
         

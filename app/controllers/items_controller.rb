@@ -1,8 +1,12 @@
 class ItemsController < ApplicationController
+  
+  
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
   # GET /items.json
+  
+  
   def index
     @items = Item.all
   end
@@ -10,6 +14,8 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+     @orders = Order.all
+    
   end
 
   # GET /items/new
@@ -33,6 +39,9 @@ class ItemsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @item.errors, status: :unprocessable_entity }
+          
+          
+          
       end
     end
   end
@@ -53,7 +62,25 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1
   # DELETE /items/1.json
+  
+  
+    def search
+    
+   if params[:question].blank?  
+    redirect_to(root_path, alert: "Empty field!") and return  
+  else  
+    
+     st = "%#{params[:question]}%"
+     
+     @items = Item.where("title like ?", st)
+  end
+  
+end
+  
+  
+  
   def destroy
+    
     @item.destroy
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }

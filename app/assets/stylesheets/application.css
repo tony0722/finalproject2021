@@ -1,6 +1,6 @@
 .headSec {
-    min-height:10px;
-    background-color: #b3e0ff;
+    min-height:15px;
+    background-color: #4287f5;
     width: 100%;
     margin-bottom:10px;
     overflow: auto;
@@ -22,7 +22,7 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;    
+    background-color:#719497;    
     
 }
 
@@ -151,7 +151,7 @@ li a {
 
 
 input[type=text], select {
-    width: 100%;
+    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -163,7 +163,7 @@ input[type=text], select {
 
 
 input[type=submit] {
-    width: 100%;
+    width: 10%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -363,4 +363,16 @@ input[type=submit]:hover {
     margin-right:0;
     font-weight:600
   }
+  
+.q 
+  {
+    width:200;
+  
+  }
+  
+  
+}
+
+.headertopnav-right {
+  float: right;
 }

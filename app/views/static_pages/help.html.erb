@@ -1,17 +1,87 @@
-<h1>StaticPages#help</h1>
-<p>Find me in app/views/static_pages/help.html.erb</p>
+
+<style>
 
 
-<div class="w3-container w3-red">
-  <h1>Header</h1>
-</div>
 
-<img src="img_car.jpg" alt="Car" style="width:100%">
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 15px;
+}
 
-<div class="w3-container">
-  <p>A car is a wheeled, self-powered motor vehicle used for transportation. Most definitions of the term specify that cars are designed to run primarily on roads. (Wikipedia)</p>
-</div>
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
-<div class="w3-container w3-red">
-  <h5>Footer</h5>
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="column">
+      
+    <h2>delivery time </h2>
+    
+    <p> monday - frinday :   from 17:00 to 22:00  </p>
+    <p>  </p>
+     <p> saturday :   from 12:00 to 22:00  </p>
+      <p>  </p>
+     <p> sunday  :   from 14:00 to 22:00  </p>
+      <p>  </p>
+     <h2>Delivery charges</h2>
+    <p> any order below € 25 will have standard delivery charge </p>
+    
+      <p>  </p>
+     <p> the standard charge is €2.5      </p>                    
+      <p>  </p>
+     <p> our delivery will cover the distance within 20km </p>
+  </div>
+  
+  <div class="column">
+    <h2>allergy information</h2>
+    <p> please attention allergy information </p>
+       
+        
+      <%= image_tag("fallergy.jpg", :size => "260x300" ) %>
+      <p>  </p>
+     <p> please let us know if you have allergy concern    </p>                    
+      <p>  </p>
+       <p>  </p>
+    
+    
+    
+    
+  </div>
+  
+  <div class="column">
+    <h2>location </h2>
+    
+   <div style="width: 100%"><iframe width="350" height="300" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=350&amp;height=300&amp;hl=en&amp;q=good%20tasty%20%20Ireland+(goodtasty)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/route-planner.htm">Google Route Planner</a></div>
+     
+    <p>
+      
+      
+      
+    </p>
+  </div>
 </div>

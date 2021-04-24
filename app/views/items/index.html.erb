@@ -1,38 +1,46 @@
-<p id="notice"><%= notice %></p>
+   
 
  <div id="itemsContainer">
   
-  <h1>Items</h1>
+  <h1>menus </h1>
      
       <% @items.each do |item| %>
+      
+      
       <div class="itemhols">
        <h1><%= item.title %></h1>
        
-       <%= link_to (image_tag item.image_url, :class => "itemholsIm"), item %>
+       <%= link_to (image_tag item.image_url, :class => "itemholsIm" ,size:"300*300"   ), item %>
+       
         <p><%= item.description %></p>
        <p>Price <%= number_to_currency(item.price, :unit => "€") %>
        <br>
         Category: <%= item.category %>
         <br>
-        Brand: <%= item.brand %></p>
+        
+        <br>
+         Ingredients: <%= item.brand %>
+        <br>
+       
+        </p>
        
        
        
        <p>
         
         
-        
+      
+            <% if current_user && current_user.admin? %>
+       
          
-         <% if session[:login] == 1%>
          
-          <%= link_to 'Show',  item, :class => "button", :role => "button" %>
          
          <%= link_to 'Edit',  edit_item_path(item), :class => "button", :role => "button" %>
          <%= link_to 'Destroy',  item, method: :delete, data: { confirm: 'Are you sure?' }, :class => "button", :role => "button" %>
          <% end %>
          
-         
-         <a href="/cart/<%= item.id %>" class="button">Add To Cart</a>
+          <%= link_to 'Show',  item, :class => "button", :role => "button" %>
+          <a href="/cart/<%= item.id %>" class="button">Add To Cart</a>
          
        </p>
        
@@ -44,5 +52,17 @@
 </div>
 
 <br>
+
+<% if current_user && current_user.admin? %> 
+
 <%= link_to 'New Item',  new_item_path, :class => "button", :role => "button" %>
+
+
+
+<%= link_to 'New category',new_category_path, :class => "button", :role => "button" %>  
+
+<% end %>
+
+
+
 

@@ -1,16 +1,31 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+
 <!-- Contact Section -->
+
+
+
   <div class="w3-container w3-padding-32" id="contact">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Contact</h3>
-    <p>Lets get in touch and talk about your next project.</p>
-    <form action="/action_page.php" target="_blank">
-      <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Email" required name="Email">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required name="Subject">
-      <input class="w3-input w3-section w3-border" type="text" placeholder="Comment" required name="Comment">
+    <p>we would like to hear from you </p>
+    <form  target="_blank">
+      <div>
+      <input class="w3-input w3-border" type="text" placeholder="Name"  required="required"   name="Name">
+      </div>
+      <div>
+      <input class="w3-input w3-section w3-border" type="email" placeholder="Email" required="required" name="Email">
+      </div>
+      
+      <div>
+      <input class="w3-input w3-section w3-border" type="text" placeholder="Subject" required="required" name="Subject">
+       </div>
+      
+      <div>
+      <input class="w3-input w3-section w3-border" type="text"  style="height:200px"  placeholder="Comment" required="required" name="Comment">
+       </div>
+      
+      
+      
       <button class="w3-button w3-black w3-section" type="submit">
-        <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        <i class="fa fa-paper-plane"> <%= link_to "SEND MESSAGE", "/feedback" %> </i>
       </button>
     </form>
   </div>

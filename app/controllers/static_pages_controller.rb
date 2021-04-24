@@ -5,6 +5,12 @@ class StaticPagesController < ApplicationController
 
   def help
         # session[:cart] = nil
+        
+        @users = User.all
+        
+        
+        
+        
   end
 
   def about
@@ -17,8 +23,24 @@ class StaticPagesController < ApplicationController
   end
   
   
+  
+  
+  
+  def alluser
+    
+    @users= User.all
+    
+  end
+  
+  
+  
   def adminsection
     @orders = Order.all
+    
+    
+    
+    
+    
     
   end
   
@@ -30,4 +52,25 @@ class StaticPagesController < ApplicationController
     
     
   end
-end
+
+
+
+  def upgradeadmin
+    
+    
+	    @user = User.find_by(id: params[:id])
+	    @user.update_attribute(:admin, true)
+	    
+	    redirect_to "/alluser"
+       
+  end
+    
+  def downgradeadmin
+    
+	    @user = User.find_by(id: params[:id])
+	    @user.update_attribute(:admin, false)
+	    redirect_to "/alluser"
+       
+  end 
+  
+end  

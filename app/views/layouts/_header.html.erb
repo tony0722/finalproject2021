@@ -1,41 +1,53 @@
+ 
+
  <header class="headsec">
   
   
   
-      <h1>Tasty</h1>
+      <h1 >good tasty </h1>
       
-      <ul>
+      <ul >
         <li><%= link_to "Home",  "/" %></li>
         
-        <li><%= link_to "Menu", "/products" %></li>
+        <li><%= link_to "Menu", "/menus" %></li>
       
-        <li><%= link_to "About", "/about" %></li>
-        <li><%= link_to "Help", "/help" %></li>
-         <li><%= link_to "Admin", "/admin" %></li>
+        <li><%= link_to "About", "/aboutpage" %></li>
+     
+        <li><%= link_to "Help", "/helppage" %></li>
+       
+         
+         
         <li><%= link_to "Contact", "/contact" %></li>
+         <% if user_signed_in? %>
          <li><%= link_to "Cart", "/cart" %></li>
+           <% end %>
+         <p id="notice"><%= notice %></p>
+         
+        <div class="headertopnav-right">
+         
+         <% if current_user && current_user.admin? %>
         
-     <% if user_signed_in? %>
-                 <li><a href="#">Hi <%= current_user.email %></a></li>
+         <li><%= link_to "admin", "/manager" %></li>
+         
+          <% end %>
+         
+         
+            <% if user_signed_in? %>
+                 <li><a href="/profile">Hi <%= current_user.email %></a></li>
                  <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
           <% else %>
                  <li><%= link_to 'Register', new_user_registration_path %></li> 
                  <li><%= link_to 'Sign in', new_user_session_path %></li>
           <% end %>
+          
+          
+         </div>
+          
+       <div class="headertopnav-right">
+       </div>
 
       </ul>
-      
+     
       
     </header>
-    <script>
-// When the user scrolls down 50px from the top of the document, resize the header's font size
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    document.getElementById("header").style.fontSize = "30px";
-  } else {
-    document.getElementById("header").style.fontSize = "90px";
-  }
-}
-</script>
+ 

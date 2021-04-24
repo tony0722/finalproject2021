@@ -18,10 +18,24 @@
         <td><%= order.order_date %></td>
         <td><%= order.user %></td>
         <td><%= order.status %></td>
-        <td><%= link_to 'Show', order %></td>
+        
+        
+        <% if current_user && current_user.admin? %> 
+        
+       
         <td><%= link_to 'Edit', edit_order_path(order) %></td>
         <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+         <% end %>
+        
+         <td><%= link_to 'Show', order %></td>
+        
       </tr>
+      
+      
+      
+      
+      
     <% end %>
   </tbody>
 </table>
